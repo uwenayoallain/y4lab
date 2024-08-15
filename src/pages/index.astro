@@ -1,0 +1,234 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { motion } from "framer-motion";
+import { HeroHighlight } from "@/components/ui/hero-highlight.tsx";
+import { Button } from "@/components/ui/button.tsx";
+import FallingChars from "@/components/ui/hash-animation.tsx";
+
+const container = {
+  hidden: {
+    opacity: 0,
+    y: 20,
+  },
+  visible: {
+    opacity: 1,
+    y: [20, -5, 0],
+    transition: {
+      duration: 0.5,
+      ease: [0.4, 0.0, 0.2, 1],
+    },
+  },
+};
+---
+
+<Layout title="Y4 Labs">
+  <main class="antialiased">
+    <section id="Hero" class="relative overflow-hidden">
+      <nav
+        class="absolute z-50 top-0 inset-x-0 h-20 gap-4 text-white flex items-center justify-around"
+      >
+        <span
+          class="text-xl font-bold relative hover:text-orange-400 cursor-pointer"
+        >
+          Y4 Labs.
+        </span>
+        <ul class="flex gap-2">
+          <li>
+            <a href="#Hero">Home</a>
+          </li>
+          <li>
+            <a href="#About">About</a>
+          </li>
+          <li>
+            <a href="#Services">Services</a>
+          </li>
+        </ul>
+        <Button as={"a"} href="#Contact" client:load>Get in touch</Button>
+      </nav>
+      <HeroHighlight client:load>
+        <motion.div
+          client:load
+          variants={container}
+          initial="hidden"
+          animate="visible"
+          className="max-w-7xl  mx-auto relative z-10  pt-20 md:pt-0"
+        >
+          <h1
+            class="text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-slate-50 to-slate-400 bg-opacity-50"
+          >
+            Building the Future of Software, <br /> One Line at a Time
+          </h1>
+          <p
+            class="mt-4 font-normal text-base text-slate-300 max-w-lg text-center mx-auto"
+          >
+            At Y4 Labs, we craft innovative software solutions that propel your
+            business forward. From concept to reality, we build robust systems
+            that drive success in the digital age. Let's partner to redefine
+            your potential.
+          </p>
+        </motion.div>
+        <Button
+          className="mx-auto block my-4"
+          size="lg"
+          as={"a"}
+          href="#About"
+          client:load>Learn more about us</Button
+        >
+      </HeroHighlight>
+    </section>
+    <section
+      class="relative p-10 min-h-[30rem] my-10 flex flex-col justify-around"
+      id="About"
+    >
+      <FallingChars text={"ABOUT US"} className="mt-10" client:load />
+      <h2 class="text-4xl font-semibold text-center">
+        Delivering reliable, scalable software solutions <br /> for business growth.
+      </h2>
+      <div class="w-1/3">
+        <h3 class="text-2xl font-semibold">Vision</h3>
+        <p class="font-normal text-base text-pretty">
+          To become a leading force in the software development industry, known
+          for our commitment to excellence, creativity, and fostering long-term
+          partnerships with clients around the globe.
+        </p>
+      </div>
+    </section>
+    <section
+      id="Services"
+      class="bg-black text-white p-10 mt-10 relative min-h-[30rem] flex flex-col justify-around"
+    >
+      <FallingChars
+        text={"SERVICES"}
+        className="mt-10 justify-end"
+        client:load
+      />
+      <h2 class="text-4xl font-semibold text-center">
+        Delivering reliable, scalable software solutions <br /> for business growth.
+      </h2>
+    </section>
+    <section
+      id="Projects"
+      class="bg-slate-300 p-10 relative min-h-[30rem] flex flex-col justify-around"
+    >
+      <FallingChars text={"OUR PROJECTS"} className="mt-10" client:load />
+      <h2 class="text-4xl font-semibold text-center">
+        Discover Our Impactful Projects
+      </h2>
+    </section>
+  </main>
+  <footer
+    id="Contact"
+    class="bg-black text-slate-400 bg-grid-small-slate-50/20 p-10 relative min-h-[30rem] flex flex-col justify-around"
+  >
+    <div
+      class="absolute pointer-events-none inset-0 z-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"
+    >
+    </div>
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 z-[1]">
+      <div class="flex flex-col space-y-4 justify-between">
+        <div>
+          <h3 class="text-3xl font-black text-white">Y4 Labs.</h3>
+          <p class="mt-4 text-pretty">
+            we craft innovative software solutions that propel your business
+            forward. From concept to reality, we build robust systems that drive
+            success in the digital age. Let's partner to redefine your
+            potential.
+          </p>
+        </div>
+        <div class="flex justify-center gap-4 py-2">
+          <a href="#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+              class="size-4 fill-slate-400 hover:fill-white transition"
+            >
+              <path
+                d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"
+              ></path>
+            </svg>
+          </a>
+          <a href="#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512"
+              class="size-4 fill-slate-400 hover:fill-white transition"
+            >
+              <path
+                d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z"
+              ></path>
+            </svg>
+          </a>
+          <a href="mailto:#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+              class="size-4 fill-slate-400 hover:fill-white transition"
+            >
+              <path
+                d="M256 64C150 64 64 150 64 256s86 192 192 192c17.7 0 32 14.3 32 32s-14.3 32-32 32C114.6 512 0 397.4 0 256S114.6 0 256 0S512 114.6 512 256l0 32c0 53-43 96-96 96c-29.3 0-55.6-13.2-73.2-33.9C320 371.1 289.5 384 256 384c-70.7 0-128-57.3-128-128s57.3-128 128-128c27.9 0 53.7 8.9 74.7 24.1c5.7-5 13.1-8.1 21.3-8.1c17.7 0 32 14.3 32 32l0 80 0 32c0 17.7 14.3 32 32 32s32-14.3 32-32l0-32c0-106-86-192-192-192zm64 192a64 64 0 1 0 -128 0 64 64 0 1 0 128 0z"
+              ></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <!-- Contact Information -->
+      <div class="flex flex-col space-y-4 justify-between">
+        <div>
+          <h3 class="text-lg font-bold">Get in Touch</h3>
+          <p class="text-pretty mt-4">
+            We’d love to hear from you! Whether you have a question, need
+            support, or want to discuss a potential project, feel free to reach
+            out.
+          </p>
+        </div>
+        <div class="flex gap-4 justify-center">
+          <Button className="" client:load>contact@y4labs.com</Button>
+          <Button size="icon" className="" client:load>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 384 512"
+              class="size-4"
+            >
+              <path
+                d="M280 64l40 0c35.3 0 64 28.7 64 64l0 320c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 128C0 92.7 28.7 64 64 64l40 0 9.6 0C121 27.5 153.3 0 192 0s71 27.5 78.4 64l9.6 0zM64 112c-8.8 0-16 7.2-16 16l0 320c0 8.8 7.2 16 16 16l256 0c8.8 0 16-7.2 16-16l0-320c0-8.8-7.2-16-16-16l-16 0 0 24c0 13.3-10.7 24-24 24l-88 0-88 0c-13.3 0-24-10.7-24-24l0-24-16 0zm128-8a24 24 0 1 0 0-48 24 24 0 1 0 0 48z"
+              ></path>
+            </svg>
+          </Button>
+        </div>
+      </div>
+
+      <!-- Newsletter Signup -->
+      <div class="flex flex-col space-y-4 justify-between">
+        <div>
+          <h3 class="text-lg font-bold">Stay Updated</h3>
+          <p>Get the latest updates and news from Y4 Labs.</p>
+        </div>
+        <form class="flex flex-col space-y-4">
+          <label class="block">
+            <span
+              class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium"
+            >
+              Email
+            </span>
+            <input
+              type="email"
+              name="email"
+              class="mt-1 px-3 py-2 bg-slate-800 border shadow-sm border-slate-900 placeholder-slate-400 block w-full rounded-md sm:text-sm ocus:outline-none focus:border-slate-500 focus:ring-1 focus:ring-slate-500"
+              placeholder="you@example.com"
+            />
+          </label>
+          <input
+            type="submit"
+            disabled
+            class="py-2 px-12 rounded-full w-max text-slate-900 bg-blue-600"
+            placeholder="Subscribe"
+          />
+        </form>
+      </div>
+    </div>
+
+    <div class="border-t border-slate-800 pt-6 text-center text-sm">
+      <p>&copy; 2024 Y4 Labs. All rights reserved.</p>
+    </div>
+  </footer>
+</Layout>
