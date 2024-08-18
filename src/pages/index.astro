@@ -1,9 +1,10 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import { motion } from "framer-motion";
-import { HeroHighlight } from "@/components/ui/hero-highlight.tsx";
-import { Button } from "@/components/ui/button.tsx";
-import FallingChars from "@/components/ui/hash-animation.tsx";
+import Layout from '@/layouts/Layout.astro';
+import { motion } from 'framer-motion';
+import { HeroHighlight } from '@/components/ui/hero-highlight.tsx';
+import { Button } from '@/components/ui/button.tsx';
+import FallingChars from '@/components/ui/hash-animation.tsx';
+import { Services } from '@/components/ui/services.tsx';
 
 const container = {
   hidden: {
@@ -43,7 +44,7 @@ const container = {
             <a href="#Services">Services</a>
           </li>
         </ul>
-        <Button as={"a"} href="#Contact" client:load>Get in touch</Button>
+        <Button as={'a'} href="#Contact" client:load>Get in touch</Button>
       </nav>
       <HeroHighlight client:load>
         <motion.div
@@ -70,7 +71,7 @@ const container = {
         <Button
           className="mx-auto block my-4"
           size="lg"
-          as={"a"}
+          as={'a'}
           href="#About"
           client:load>Learn more about us</Button
         >
@@ -80,7 +81,7 @@ const container = {
       class="relative p-10 min-h-[30rem] my-10 flex flex-col justify-around"
       id="About"
     >
-      <FallingChars text={"ABOUT US"} className="mt-10" client:load />
+      <FallingChars text={'ABOUT US'} className="mt-10" client:load />
       <h2 class="text-4xl font-semibold text-center">
         Delivering reliable, scalable software solutions <br /> for business growth.
       </h2>
@@ -95,22 +96,24 @@ const container = {
     </section>
     <section
       id="Services"
-      class="bg-black text-white p-10 mt-10 relative min-h-[30rem] flex flex-col justify-around"
+      class="bg-black text-white p-10 mt-10 relative min-h-screen flex flex-col gap-10 justify-around"
     >
       <FallingChars
-        text={"SERVICES"}
+        text={'SERVICES'}
+        amount={0.7}
         className="mt-10 justify-end"
         client:load
       />
       <h2 class="text-4xl font-semibold text-center">
         Delivering reliable, scalable software solutions <br /> for business growth.
       </h2>
+      <Services />
     </section>
     <section
       id="Projects"
       class="bg-slate-300 p-10 relative min-h-[30rem] flex flex-col justify-around"
     >
-      <FallingChars text={"OUR PROJECTS"} className="mt-10" client:load />
+      <FallingChars text={'OUR PROJECTS'} className="mt-10" client:load />
       <h2 class="text-4xl font-semibold text-center">
         Discover Our Impactful Projects
       </h2>

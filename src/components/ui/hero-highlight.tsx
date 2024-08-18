@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { cn } from "@/lib/utils";
-import { useMotionValue, motion, useMotionTemplate } from "framer-motion";
-import { Spotlight } from "@/components/ui/spot-light.tsx";
-import React from "react";
+import { cn } from '@/lib/utils';
+import { useMotionValue, motion, useMotionTemplate } from 'framer-motion';
+import { Spotlight } from '@/components/ui/spot-light.tsx';
+import React from 'react';
 
 export const HeroHighlight = ({
   children,
@@ -31,8 +31,8 @@ export const HeroHighlight = ({
   return (
     <div
       className={cn(
-        "relative h-[40rem] flex items-center bg-black justify-center group",
-        containerClassName,
+        'relative h-[40rem] flex items-center bg-black justify-center group',
+        containerClassName
       )}
       onMouseMove={handleMouseMove}
     >
@@ -61,7 +61,7 @@ radial-gradient(
         fill="#fafafa"
       />
 
-      <div className={cn("relative z-20", className)}>{children}</div>
+      <div className={cn('relative z-20', className)}>{children}</div>
     </div>
   );
 };
